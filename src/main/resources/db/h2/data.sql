@@ -32,6 +32,13 @@ INSERT INTO owners VALUES (default, 'Jeff', 'Black', '1450 Oak Blvd.', 'Monona',
 INSERT INTO owners VALUES (default, 'Maria', 'Escobito', '345 Maple St.', 'Madison', '6085557683');
 INSERT INTO owners VALUES (default, 'David', 'Schroeder', '2749 Blackhawk Trail', 'Madison', '6085559435');
 INSERT INTO owners VALUES (default, 'Carlos', 'Estaban', '2335 Independence La.', 'Waunakee', '6085555487');
+INSERT INTO owners VALUES (default, 'Haythem', 'Kenway', 'Anything', 'London', '1111111111');
+INSERT INTO owners VALUES (default, 'Edward', 'Kenway', 'Anything', 'Kingston', '1111111111');
+INSERT INTO owners VALUES (default, 'Connor', 'Kenway', 'Anything', 'Boston', '1111111111');
+INSERT INTO owners VALUES (default, 'Ezio', 'Auditore', 'Anything', 'Rome', '1111111111');
+INSERT INTO owners VALUES (default, 'Shay', 'Cormac', 'Anything', 'Lisbon', '1111111111');
+INSERT INTO owners VALUES (default, 'Edward', 'Thatch', 'Anything', 'Castries', '1111111111');
+INSERT INTO owners VALUES (default, 'Arno', 'Droian', 'Anything', 'Castries', '1111111111');
 
 INSERT INTO pets VALUES (default, 'Leo', '2010-09-07', 1, 1);
 INSERT INTO pets VALUES (default, 'Basil', '2012-08-06', 6, 2);

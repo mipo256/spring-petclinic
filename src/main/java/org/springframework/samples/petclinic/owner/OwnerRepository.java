@@ -15,10 +15,10 @@
  */
 package org.springframework.samples.petclinic.owner;
 
-import java.util.List;
 import java.util.Optional;
 
 import jakarta.annotation.Nonnull;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -61,5 +61,14 @@ public interface OwnerRepository extends JpaRepository<Owner, Integer> {
 	 * input for id)
 	 */
 	Optional<Owner> findById(@Nonnull Integer id);
+
+	@Query(value = """
+				SELECT * FROM owners
+				WHERE last_name LIKE '%' || :name || '%'
+				FOR UPDATE OF owner SKIP LOCKED
+			""", nativeQuery = true)
+	Page<Owner> findByLastNameContainsLocked(String name, Pageable pageable);
+
+	// Stream<Owner> streamAllByCityContains(String city);
 
 }
