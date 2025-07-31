@@ -408,6 +408,11 @@
                 <goals>
                   <goal>process-test-aot</goal>
                 </goals>
+                <configuration>
+                  <jvmArguments>
+                    -Dspring.aot.repositories.enabled=true
+                  </jvmArguments>
+                </configuration>
               </execution>
             </executions>
           </plugin>

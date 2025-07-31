@@ -1,0 +1,19 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="OwnerRepositoryTest.shouldFindConnorKenway" type="JUnit" factoryName="JUnit" singleton="false" nameIsGenerated="true">
+    <module name="spring-petclinic" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="org.springframework.samples.petclinic.owner.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="org.springframework.samples.petclinic.owner" />
+    <option name="MAIN_CLASS_NAME" value="org.springframework.samples.petclinic.owner.OwnerRepositoryTest" />
+    <option name="METHOD_NAME" value="shouldFindConnorKenway" />
+    <option name="TEST_OBJECT" value="method" />
+    <option name="VM_PARAMETERS" value="-ea -Dspring.aot.enabled=true -Dlogging.level.org.springframework=DEBUG" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
