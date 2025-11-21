@@ -49,3 +49,8 @@ out/
 _site/
 *.css
 !petclinic.css
+*.aot
+*.jsa
+log/
+spring-petclinic-3.5.0-SNAPSHOT/
+cds.log

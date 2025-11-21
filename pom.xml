@@ -217,7 +217,7 @@
               <configLocation>src/checkstyle/nohttp-checkstyle.xml</configLocation>
               <sourceDirectories>${basedir}</sourceDirectories>
               <includes>**/*</includes>
-              <excludes>**/.git/**/*,**/.idea/**/*,**/target/**/,**/.flattened-pom.xml,**/*.class</excludes>
+              <excludes>**/.git/**/*,**/.idea/**/*,**/target/**/,**/.flattened-pom.xml,**/*.class,**/*.jsa</excludes>
               <propertyExpansion>config_loc=${basedir}/src/checkstyle/</propertyExpansion>
             </configuration>
           </execution>
@@ -398,20 +398,7 @@
                   <goal>process-aot</goal>
                 </goals>
                 <configuration>
-                  <jvmArguments>
-                    -Dspring.aot.repositories.enabled=true
-                  </jvmArguments>
-                </configuration>
-              </execution>
-              <execution>
-                <id>process-test-aot</id>
-                <goals>
-                  <goal>process-test-aot</goal>
-                </goals>
-                <configuration>
-                  <jvmArguments>
-                    -Dspring.aot.repositories.enabled=true
-                  </jvmArguments>
+                  <jvmArguments>-Dspring.aot.repositories.enabled=true</jvmArguments>
                 </configuration>
               </execution>
             </executions>
