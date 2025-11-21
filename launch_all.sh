@@ -20,9 +20,7 @@ java -Dvisualvm.display.name=Regular \
  -Dserver.port=8080 \
  -Xmx400m \
  -Xms200m \
- -XX:NativeMemoryTracking=summary \
  -XX:+UnlockDiagnosticVMOptions \
- -XX:+PrintNMTStatistics \
  -jar spring-petclinic-3.5.0-SNAPSHOT/spring-petclinic-3.5.0-SNAPSHOT.jar &>log/launch.txt &
 
 # AOT Bean definitions
@@ -32,9 +30,7 @@ java -Dvisualvm.display.name=AOT_Bean_definitions \
  -Dspring.aot.enabled=true  \
  -Xmx400m \
  -Xms200m \
- -XX:NativeMemoryTracking=summary \
  -XX:+UnlockDiagnosticVMOptions \
- -XX:+PrintNMTStatistics \
  -jar spring-petclinic-3.5.0-SNAPSHOT/spring-petclinic-3.5.0-SNAPSHOT.jar &>log/launch-aot.txt &
 
 # Regular + AppCDS
@@ -46,8 +42,6 @@ java -Dvisualvm.display.name=Regular_AppCDS \
  -XX:+UnlockDiagnosticVMOptions \
  -XX:+AllowArchivingWithJavaAgent \
  -XX:SharedArchiveFile=application.jsa \
- -XX:NativeMemoryTracking=summary \
- -XX:+PrintNMTStatistics \
  -jar spring-petclinic-3.5.0-SNAPSHOT/spring-petclinic-3.5.0-SNAPSHOT.jar &>log/launch-appcds.txt &
 
 # AOT Bean definitions + AppCDS
@@ -59,25 +53,33 @@ java -Dvisualvm.display.name=AOT_Bean_definitions_AppCDS \
  -XX:+AllowArchivingWithJavaAgent \
  -Xms200m \
  -XX:SharedArchiveFile=application.jsa \
- -XX:NativeMemoryTracking=summary \
- -XX:+PrintNMTStatistics \
  -Dspring.aot.enabled=true \
  -jar spring-petclinic-3.5.0-SNAPSHOT/spring-petclinic-3.5.0-SNAPSHOT.jar &>log/launch-aot-appcds.txt &
 
-#cat log/launch.txt | grep -i "Started PetClinicApplication"
+# AOT Bean definitions + Aot Cache
+java -Dvisualvm.display.name=AOT_Bean_definitions_AppCDS \
+ -Dspring.application.name=AOT_Bean_definitions_AppCDS \
+ -Dserver.port=8089 \
+ -Xmx400m \
+ -Xms200m \
+ -XX:AOTCache=app.aot \
+ -Dspring.aot.enabled=true \
+ -jar spring-petclinic-3.5.0-SNAPSHOT/spring-petclinic-3.5.0-SNAPSHOT.jar &>log/launch-aot-cache.txt &
 
 echo "sleeping..."
 
+# To make sure everybody is up
 sleep 15
 
-echo "testing instances..."
-
-PORTS=(8080 8081 8082 8083)
-
-for p in "${PORTS[@]}"; do
-  curl -q "http://localhost:$p"
-  curl -q "http://localhost:$p/vets.html"
-  curl -q "http://localhost:$p/owners/find"
-done
-
-echo "tested all"
+#
+#echo "testing instances..."
+#
+#PORTS=(8080 8081 8082 8083)
+#
+#for p in "${PORTS[@]}"; do
+#  curl -q "http://localhost:$p"
+#  curl -q "http://localhost:$p/vets.html"
+#  curl -q "http://localhost:$p/owners/find"
+#done
+#
+#echo "tested all"
